@@ -7,11 +7,12 @@
     </title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css" >
-    <script src="assets/js/jquery-3.2.1.js"></script>
-    <script src="assets/js/ajaxScript.js"></script>
 </head>
 <body>
    <table>
+       
+       
+       
        <tr>
            <td class="desc">
                <div class="data-holder"><span class="block"></span></div>
@@ -45,42 +46,42 @@
            </td>
            <td class="data">
                <div class="data-holder coinsecure coinsecure-koinex">
-                    <span class="block"></span>
-                    <span class="block"></span>
-                    <span class="block"></span>
-                    <span class="block"></span>
+                    <span class="block">-10%</span>
+                    <span class="block">24</span>
+                    <span class="block">sell: 8235</span>
+                    <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder coinsecure coinsecure-bitbay">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder coinsecure coinsecure-bitfinex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder coinsecure coinsecure-kraken">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder coinsecure coinsecure-cex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
        </tr>
@@ -88,10 +89,10 @@
            <td class="desc"><div class="data-holder"><span class="block"></span>Koinex</div></td>
            <td class="data">
                <div class="data-holder koinex koinex-coinsecure">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="desc null">
@@ -100,34 +101,34 @@
            </td>
            <td class="data">
                <div class="data-holder koinex koinex-bitbay">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder koinex koinex-bitfinex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder koinex koinex-kraken">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder koinex koinex-coinsecure">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
        </tr>
@@ -135,18 +136,18 @@
            <td class="desc"><div class="data-holder"><span class="block"></span>Bitbay</div></td>
            <td class="data">
                <div class="data-holder bitbay bitbay-coinsecure">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder bitbay bitbay-koinex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="desc null">
@@ -155,26 +156,26 @@
            </td>
            <td class="data">
                <div class="data-holder bitbay bitbay-bitfinex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder bitbay bitbay-kraken">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder bitbay bitbay-cex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
        </tr>
@@ -182,26 +183,26 @@
            <td class="desc"><div class="data-holder"><span class="block"></span>Bitfinex</div></td>
            <td class="data">
                <div class="data-holder bitfinex bitfinex-coinsecure">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder bitfinex bitfinex-koinex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder bitfinex bitfinex-bitbay">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="desc null">
@@ -210,18 +211,18 @@
            </td>
            <td class="data">
                <div class="data-holder bitfinex bitfinex-kraken">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder bitfinex bitfinex-cex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
        </tr>
@@ -229,34 +230,34 @@
            <td class="desc"><div class="data-holder"><span class="block"></span>Kraken</div></td>
            <td class="data">
                <div class="data-holder kraken kraken-coinsecure">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder kraken kraken-koinex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder kraken kraken-bitbay">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder kraken kraken-bitfinex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="desc null">
@@ -265,10 +266,10 @@
            </td>
            <td class="data">
                <div class="data-holder kraken kraken-cex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
        </tr>
@@ -276,42 +277,42 @@
            <td class="desc"><div class="data-holder"><span class="block"></span>Cex.io</div></td>
            <td class="data">
                <div class="data-holder cex cex-coinsecure">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder cex cex-koinex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder cex cex-bitbay">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder cex cex-bitfinex">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="data">
                <div class="data-holder cex cex-kraken">
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
-                   <span class="block"></span>
+                   <span class="block">-10%</span>
+                   <span class="block">24</span>
+                   <span class="block">sell: 8235</span>
+                   <span class="block">buy: 8236</span>
                </div>
            </td>
            <td class="desc null">

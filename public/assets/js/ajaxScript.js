@@ -7,7 +7,7 @@ $(document).ready(function(){
         var cs = kx = bb = bf = kr = cx = false;    
         $.ajax({
         type: "GET",
-        url: "http://localhost:4000/getDataCoinsecure",
+        url: "https://quiet-hamlet-43198/getDataCoinsecure",
         datatype: "json"
     })
     .done(function(data){
@@ -28,7 +28,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: "GET",
-            url: "http://localhost:4000/getDataKoinex",
+            url: "https://quiet-hamlet-43198/getDataKoinex",
             datatype: "json"
         })
         .done(function(data){
@@ -57,7 +57,7 @@ $(document).ready(function(){
             
             $.ajax({
                 type: "GET",
-                url: "http://localhost:4000/getDataBitbay",
+                url: "https://quiet-hamlet-43198/getDataBitbay",
                 datatype: "json"
             })
             .done(function(data){
@@ -94,7 +94,7 @@ $(document).ready(function(){
                 
                 $.ajax({
                     type: "GET",
-                    url: "http://localhost:4000/getDataBitfinex",
+                    url: "https://quiet-hamlet-43198/getDataBitfinex",
                     datatype: "json"
                 })
                 .done(function(data){
@@ -134,7 +134,7 @@ $(document).ready(function(){
 
                     $.ajax({
                         type: "GET",
-                        url: "http://localhost:4000/getDataKraken",
+                        url: "https://quiet-hamlet-43198/getDataKraken",
                         datatype: "json"
                     })
                     .done(function(data){
@@ -180,7 +180,7 @@ $(document).ready(function(){
                         
                         $.ajax({
                             type: "GET",
-                            url: "http://localhost:4000/getDataCex",
+                            url: "https://quiet-hamlet-43198/getDataCex",
                             datatype: "json"
                         })
                         .done(function(data){
