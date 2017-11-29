@@ -3,11 +3,13 @@ $(document).ready(function(){
     $(".data .data-holder span:nth-of-type(1)").text("loading");
     $(".data").removeClass("null");
     function runAjax(count) { 
+	
+		var serverUrl = "https://quiet-hamlet-43198.herokuapp.com/"; 
         console.log("running ajax function");
         var cs = kx = bb = bf = kr = cx = false;    
         $.ajax({
         type: "GET",
-        url: "https://quiet-hamlet-43198/getDataCoinsecure",
+        url: serverUrl+"getDataCoinsecure",
         datatype: "json"
     })
     .done(function(data){
@@ -28,7 +30,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: "GET",
-            url: "https://quiet-hamlet-43198/getDataKoinex",
+            url: serverUrl+"getDataKoinex",
             datatype: "json"
         })
         .done(function(data){
@@ -57,7 +59,7 @@ $(document).ready(function(){
             
             $.ajax({
                 type: "GET",
-                url: "https://quiet-hamlet-43198/getDataBitbay",
+                url: serverUrl+"getDataBitbay",
                 datatype: "json"
             })
             .done(function(data){
@@ -94,7 +96,7 @@ $(document).ready(function(){
                 
                 $.ajax({
                     type: "GET",
-                    url: "https://quiet-hamlet-43198/getDataBitfinex",
+                    url: serverUrl+"getDataBitfinex",
                     datatype: "json"
                 })
                 .done(function(data){
@@ -134,7 +136,7 @@ $(document).ready(function(){
 
                     $.ajax({
                         type: "GET",
-                        url: "https://quiet-hamlet-43198/getDataKraken",
+                        url: serverUrl+"getDataKraken",
                         datatype: "json"
                     })
                     .done(function(data){
@@ -180,7 +182,7 @@ $(document).ready(function(){
                         
                         $.ajax({
                             type: "GET",
-                            url: "https://quiet-hamlet-43198/getDataCex",
+                            url: serverUrl+"getDataCex",
                             datatype: "json"
                         })
                         .done(function(data){
