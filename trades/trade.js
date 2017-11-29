@@ -13,6 +13,9 @@
 
 // var url6 = "https://cex.io/api/ticker/BTC/USD";
 // //bid ask
+
+
+
 var request = require("request");
 var tradeValues = function(theUrl, name){
     return new Promise((resolve,reject)=>{
@@ -23,44 +26,55 @@ var tradeValues = function(theUrl, name){
             if(response.statusCode==200){
                 var b_bid;
                 var b_ask;
-                if(name=="coinsecure"){
-                    b_bid=parseFloat(body.message.bid/10000);
-                    b_ask=parseFloat(body.message.ask/10000);
+                try{
+                    if(name=="coinsecure"){
+                        b_bid=parseFloat(body.message.bid/10000);
+                        b_ask=parseFloat(body.message.ask/10000);
+                    }
+                    else if(name=="koinex"){
+                        b_bid=parseFloat(body.stats.BTC.highest_bid);
+                        b_ask=parseFloat(body.stats.BTC.lowest_ask);
+                    }
+                    else if(name=="bitbay"){
+                        b_bid=parseFloat(body.bid);
+                        b_ask=parseFloat(body.ask);
+                    }
+                    else if(name=="bitfinex"){
+                        b_bid=parseFloat(body.bid);
+                        b_ask=parseFloat(body.ask);
+                    }
+                    else if(name=="kraken"){
+                        b_bid=parseFloat(body.result.XXBTZUSD.b[0]);
+                        b_ask=parseFloat(body.result.XXBTZUSD.a[0]);
+                    }
+                    else if(name=="cex.io"){
+                        
+                        b_bid=parseFloat(body.bid);
+                        b_ask=parseFloat(body.ask);
+                    }
+                    else{
+                        reject(name+" is not valid");
+                    }
+                    
+                    var tempObj={
+                        bid: Math.round(b_bid*10)/10,
+                        ask: Math.round(b_ask*10)/10
+                    } 
+                    resolve(tempObj);
+
                 }
-                else if(name=="koinex"){
-                    b_bid=parseFloat(body.stats.BTC.highest_bid);
-                    b_ask=parseFloat(body.stats.BTC.lowest_ask);
-                }
-                else if(name=="bitbay"){
-                    b_bid=parseFloat(body.bid);
-                    b_ask=parseFloat(body.ask);
-                }
-                else if(name=="bitfinex"){
-                    b_bid=parseFloat(body.bid);
-                    b_ask=parseFloat(body.ask);
-                }
-                else if(name=="kraken"){
-                    b_bid=parseFloat(body.result.XXBTZUSD.b[0]);
-                    b_ask=parseFloat(body.result.XXBTZUSD.a[0]);
-                }
-                else if(name=="cex.io"){
-                    b_bid=parseFloat(body.bid);
-                    b_ask=parseFloat(body.ask);
-                }
-                else{
-                    reject(name+" is not valid");
+                catch(error){
+                    console.log("error");
+                    resolve({bid:0000,ask:0000});
                 }
                 
-                var tempObj={
-                    bid: Math.round(b_bid*10)/10,
-                    ask: Math.round(b_ask*10)/10
-                } 
-                resolve(tempObj);
             }
             else if(error){
                 resolve({bid:0000,ask:0000});
             }
             else{
+                console.log(name,"unavailable");
+                // console.log(body);
                 resolve({bid:0000,ask:0000});
                 //reject("errorCode"+response.statusCode);
             }
