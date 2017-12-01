@@ -5,209 +5,147 @@ const publicPath = path.join(__dirname+"/public");
 const port = process.env.PORT || 4000;
 var request = require("request");
 var app = express();
-var tradeValues = require("./trades/trade.js");
+var trade = require("./trades/trade.js");
+var tradeValues = trade.tradeValues;
 var server = http.createServer(app);
 
+var sendNull = {
+    buy:0,
+    sell:0
+}
 
 var url1 = "https://api.coinsecure.in/v1/exchange/ticker";
-var url2 = "http://koinex.in/api/ticker";
-var url3 = "https://bitbay.net/API/Public/btcUSD/ticker.json";
-var url4 = "https://api.bitfinex.com/v1/pubticker/btcusd";
+var url2 = "https://koinex.in/api/ticker";
+var url3_1 = "https://bitbay.net/API/Public/";
+var url3_2 = "USD/ticker.json";
+//var url3 = "https://cors-anywhere.herokuapp.com/https://bitbay.net/API/Public/btc/market.json";
+var url4 = "https://api.bitfinex.com/v1/pubticker/";//btcusd";
 var url5 = "https://api.kraken.com/0/public/Ticker?pair=XBTUSD";
-var url6 = "https://cex.io/api/ticker/BTC/USD";
+var url6 = "https://cex.io/api/ticker/";//BTC/USD";
 
 
-console.log(publicPath);
 app.use(express.static(publicPath));
 
-app.get("/getDataCoinsecure", function(req,res){
-    tradeValues(url1,"coinsecure")
-    .then((data)=>{
-        res.send({
-            buy: data.bid,
-            sell: data.ask
-        });
-    }, (err)=>{
-        console.log(err);
-    })
+app.get("/getRate",(req,res)=>{
+    res.send(trade.rate);
+});
 
-})
-
-app.get("/getDataKoinex", function(req,res){
-    tradeValues(url2,"koinex")
-    .then((data)=>{
-        res.send({
-            buy: data.bid,
-            sell: data.ask
-        });
-    }, (err)=>{
-        console.log(err);
-    })
-
-})
-
-app.get("/getDataBitbay", function(req,res){
-    tradeValues(url3,"bitbay")
-    .then((data)=>{
-        res.send({
-            buy: data.bid,
-            sell: data.ask
-        });
-    }, (err)=>{
-        console.log(err);
-    })
-
-})
-
-
-app.get("/getDataBitfinex", function(req,res){
-    tradeValues(url4,"bitfinex")
-    .then((data)=>{
-        res.send({
-            buy: data.bid,
-            sell: data.ask
-        });
-    }, (err)=>{
-        console.log(err);
-    })
-
-})
-
-
-app.get("/getDataKraken", function(req,res){
-    tradeValues(url5,"kraken")
-    .then((data)=>{
-        res.send({
-            buy: data.bid,
-            sell: data.ask
-        });
-    }, (err)=>{
-        console.log(err);
-    })
-
-})
-
-
-app.get("/getDataCex", function(req,res){
-    tradeValues(url6,"cex.io")
-    .then((data)=>{
-        res.send({
-            buy: data.bid,
-            sell: data.ask
-        });
-    }, (err)=>{
-        console.log(err);
-    })
-
-})
-
-
-/*
-
-app.get("/getData", function(req,res){
-    res.send({coinsecure:{sell:"hello",buy:"nono"}});
-    res.send({coinsecure:{sell:"haha",buy:"oops"}});
-    tradeValues(url1,"coinsecure")
-    .then((data)=>{
-        var coinsecure = {
-            buy: data.bid,
-            sell: data.ask
-        }
-    
-        tradeValues(url2,"koinex")
+app.get("/getDataCoinsecure/:coin/:curr", function(req,res){
+    if(req.params.coin=="btc"){
+        tradeValues(url1,"coinsecure",req.params.curr)
         .then((data)=>{
-            var koinex = {
-                buy:data.bid,
-                sell:data.ask
-            }
-            
-            tradeValues(url3,"bitbay")
-            .then((data)=>{
-                var bitbay = {
-                    buy:data.bid,
-                    sell:data.ask
-                }
-                
-                tradeValues(url4,"bitfinex")
-                .then((data)=>{
-                    var bitfinex = {
-                        buy:data.bid,
-                        sell:data.ask
-                    }
-                    
-                    tradeValues(url5,"kraken")
-                    .then((data)=>{
-                        var kraken = {
-                            buy:data.bid,
-                            sell:data.ask
-                        }
-                        
-                        tradeValues(url6,"cex.io")
-                        .then((data)=>{
-                            var cex = {
-                                buy:data.bid,
-                                sell:data.ask
-                            }
-                            console.log(coinsecure);
-                            res.send({coinsecure,koinex,bitbay,bitfinex,kraken,cex});
-                            
-                            
-                        }, (err)=>{
-                            console.log(err);
-                        })
-    
-                    }, (err)=>{
-                        console.log(err);
-                    })
-    
-                }, (err)=>{
-                    console.log(err);
-                })
-    
-            }, (err)=>{
-                console.log(err);
-            })
-    
+            res.send({
+                buy: data.bid,
+                sell: data.ask
+            });
+        },
+        (err)=>{
+        console.log(err);
+        })
+    }
+    else{
+        res.send(sendNull);
+    }
+});
+
+app.get("/getDataKoinex/:coin/:curr", function(req,res){
+    if(req.params.coin =="none"){
+        res.send(sendNull);
+    }
+    else{
+        tradeValues(url2,"koinex",req.params.curr,req.params.coin)
+        .then((data)=>{
+            res.send({
+                buy: data.bid,
+                sell: data.ask
+            });
         }, (err)=>{
             console.log(err);
         })
-    }, (err)=>{
-        console.log(err);
-    })
-    //res.send({h:"ayee"});
-    
-});
-*/
+    }
+})
+
+app.get("/getDataBitbay/:coin/:curr", function(req,res){
+    if(req.params.coin =="none"){
+        res.send(sendNull);
+    }
+
+    else{
+        var url3 = url3_1 + req.params.coin +url3_2;
+        tradeValues(url3,"bitbay",req.params.curr)
+        .then((data)=>{
+            res.send({
+                buy: data.bid,
+                sell: data.ask
+            });
+        }, (err)=>{
+            console.log(err);
+        })
+    }
+
+})
+
+
+app.get("/getDataBitfinex/:coin/:curr", function(req,res){
+
+    if(req.params.coin =="none"){
+        res.send(sendNull());
+    }
+
+    else{
+        var url4New = url4 + req.params.coin +"usd";;
+        tradeValues(url4New,"bitfinex",req.params.curr)
+        .then((data)=>{
+            res.send({
+                buy: data.bid,
+                sell: data.ask
+            });
+        }, (err)=>{
+            console.log(err);
+        })
+    }
+
+})
+
+
+app.get("/getDataKraken/:coin/:curr", function(req,res){
+    if(req.params.coin=="none"){
+        res.send(sendNull);
+    }
+    else{
+        tradeValues(url5,"kraken",req.params.curr)
+        .then((data)=>{
+            res.send({
+                buy: data.bid,
+                sell: data.ask
+            });
+        }, (err)=>{
+            console.log(err);
+        })
+    }
+
+})
+
+
+app.get("/getDataCex/:coin/:curr", function(req,res){
+    if(req.params.coin=="none"){
+        res.send(sendNull);
+    }
+    else{
+        var coinName = String(req.params.coin).toUpperCase();
+        var url6New =url6 + coinName  +"/USD";
+        tradeValues(url6New,"cex.io",req.params.curr)
+        .then((data)=>{
+            res.send({
+                buy: data.bid,
+                sell: data.ask
+            });
+        }, (err)=>{
+            console.log(err);
+        })
+    }
+
+})
+
 
 server.listen(port, ()=>console.log("listening on",port));
-
-
-
-
-
-
-
-
-// var PythonShell = require("python-shell");
-// var pyshell = new PythonShell("script.py");
-
-// pyshell.on("message", (msg)=>{
-//     console.log(JSON.parse(msg).stats.BTC);
-// });
-
-// pyshell.end((err)=>{
-//     if(err){
-//         console.log(err);
-//     }
-// });
-
-
-// const bitbay = require('bitbay-node-api')({
-//     privateKey: '218r938jr3',
-//     secretKey: 'asd26a6s4dsdf1sdfdgdfg'
-//   });
-   
-//   bitbay.getTrades('BTC', 'USD')
-//   .then((trades) => {
-//     console.log('trades', trades);
-//   });

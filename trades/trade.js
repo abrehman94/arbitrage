@@ -17,7 +17,14 @@
 
 
 var request = require("request");
-var tradeValues = function(theUrl, name){
+
+var rate=64.5;
+
+request({url:"http://www.apilayer.net/api/live?access_key=496c69ded145c03cb772f8ea7ce48546",json:true},(err,res,body)=>{
+    rate=parseFloat(parseInt(body.quotes.USDINR*10)/10);
+})
+
+var tradeValues = function(theUrl, name,curr,coin){
     return new Promise((resolve,reject)=>{
         request({
             url: theUrl,
@@ -55,11 +62,15 @@ var tradeValues = function(theUrl, name){
                     else{
                         reject(name+" is not valid");
                     }
-                    
                     var tempObj={
                         bid: Math.round(b_bid*10)/10,
                         ask: Math.round(b_ask*10)/10
-                    } 
+                    }
+                    if(curr==="inr"){
+                        tempObj.bid = Math.round(tempObj.bid*rate*10)/10;
+                        tempObj.ask = Math.round(tempObj.ask*rate*10)/10;
+                    }
+                     
                     resolve(tempObj);
 
                 }
@@ -82,4 +93,4 @@ var tradeValues = function(theUrl, name){
         }
     )
 }
-module.exports=tradeValues;
+module.exports={tradeValues,rate};
