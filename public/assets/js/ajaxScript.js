@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var servername = "https://quiet-hamlet-43198.herokuapp.com";
-	//var servername = "http://localhost:4000";
+    //var servername = "https://quiet-hamlet-43198.herokuapp.com";
+	var servername = "http://localhost:4000"
     var coin = "btc";
     var count = 0;
     var fname ="";
@@ -158,24 +158,20 @@ $(document).ready(function(){
                 $(".coinsecure span:nth-of-type(4)").text("buy:"+data.buy);
                 cs = true;
             }
-		var koinexXml=true;
+
         var koinexURL = "";
         if(coin=="btc" || coin =="eth" || coin=="bch"){
-            koinexURL = "https://cors-anywhere.herokuapp.com/https://koinex.in/api/ticker"; //servername+"/getDataKoinex/btc";
+            koinexURL = "https://koinex.in/api/ticker"; //servername+"/getDataKoinex/btc";
         }
         else{
             koinexURL = servername+"/returnNull.json";
         }
-		var x = new XMLHttpRequest();
-		x.open("GET", "koinexURL");
-		x.onload = function(){
-			var data = JSON.parse(x.responseText);
-			if(!koinexXml){
-				if(data.sell==0 || data.buy==0){
-					$(".koinex").parent().addClass("null");
-					$(".koinex span").text("");
-				}
-			}
+        $.get(koinexURL)
+        .done(function(data){
+            if(data.sell==0 || data.buy==0){
+                $(".koinex").parent().addClass("null");
+                $(".koinex span").text("");
+            }
             else{
                 var koinex ={
                     sell:0,
