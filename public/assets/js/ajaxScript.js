@@ -225,7 +225,7 @@ $(document).ready(function(){
                 bitbayURL = servername+"/getDataBitbay/eth"+"/"+curr; 
             }
             else {
-                bitbayURL = servername+"/returnNull.json"+"/"+curr; 
+                bitbayURL = servername+"/returnNull.json"; 
             }
             $.ajax({
                 type: "GET",
@@ -431,7 +431,7 @@ $(document).ready(function(){
                             cexURL = servername+"/getDataCex/eth"+"/"+curr;
                         }
                         else{
-                            cexURL = servername+"/returnNull.json"+"/"+curr;
+                            cexURL = servername+"/returnNull.json";
                         }
                         $.ajax({
                             type: "GET",
