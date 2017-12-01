@@ -160,7 +160,7 @@ $(document).ready(function(){
 
         var koinexURL = "";
         if(coin=="btc" || coin =="eth" || coin=="bch"){
-            koinexURL = "https://cors-anywhere.herokuapp.com/https://koinex.in/api/ticker"; //servername+"/getDataKoinex/btc";
+            koinexURL = "https://koinex.in/api/ticker"; //servername+"/getDataKoinex/btc";
         }
         else{
             koinexURL = servername+"/returnNull.json";
