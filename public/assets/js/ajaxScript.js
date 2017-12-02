@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var servername = "https://quiet-hamlet-43198.herokuapp.com";
-	//var servername = "http://localhost:4000"
+    //var servername = "https://quiet-hamlet-43198.herokuapp.com";
+	var servername = "http://localhost:4000"
     var coin = "btc";
     var count = 0;
     var fname ="";
@@ -191,7 +191,7 @@ $(document).ready(function(){
                 }
         })
         .fail(()=>console.log("error with coinsecure"))
-
+		if(count%3==0){
         var koinexURL = "";
         if(coin=="btc" || coin =="eth" || coin=="bch"){
             koinexURL = mycors+"https://koinex.in/api/ticker"; //servername+"/getDataKoinex/btc";
@@ -242,8 +242,8 @@ $(document).ready(function(){
                 colorify(list);
             }
         })
-        .fail(()=>console.log("error with koinex"))
-
+        .fail((err)=>console.log("error with koinex",err))
+		}
         if(stop)throw killed();
         var bitbayURL = "";
         if(coin=="btc"){
