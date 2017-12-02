@@ -42,8 +42,8 @@ var tradeValues = function(theUrl, name,curr,coin){
                 var b_ask;
                 try{
                     if(name=="coinsecure"){
-                        b_bid=parseFloat(body.message.bid/10000);
-                        b_ask=parseFloat(body.message.ask/10000);
+                        b_bid=parseFloat(body.message.bid/100)/rate;
+                        b_ask=parseFloat(body.message.ask/100)/rate;
                     }
                     else if(name=="koinex"){
                         b_bid=parseFloat(body.stats.BTC.highest_bid);
@@ -83,7 +83,7 @@ var tradeValues = function(theUrl, name,curr,coin){
                         bid: Math.round(b_bid*10)/10,
                         ask: Math.round(b_ask*10)/10
                     }
-                    if(curr==="inr"){
+                    if(curr==="inr" ){
                         tempObj.bid = Math.round(tempObj.bid*rate*10)/10;
                         tempObj.ask = Math.round(tempObj.ask*rate*10)/10;
                     }
