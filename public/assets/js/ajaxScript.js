@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var servername = "https://quiet-hamlet-43198.herokuapp.com";
-	//var servername = "http://localhost:4000"
+    //var servername = "https://quiet-hamlet-43198.herokuapp.com";
+	var servername = "http://localhost:4000"
     var coin = "btc";
     var count = 0;
     var fname ="";
@@ -58,7 +58,28 @@ $(document).ready(function(){
             
         }
     });
-
+    var mouseOnSettings = false;
+    $(".gear").on({
+        mouseenter: function(){
+            $(".content").slideDown();
+            mouseOnSettings = true;
+        }
+    });
+    $(".content").on({
+    mouseenter: function(){
+        mouseOnSettings = true;
+    },
+    mouseleave: function(){
+        mouseOnSettings = false;
+        setTimeout(settingsleave, 1000);
+    }});
+    function settingsleave(){
+            if(!mouseOnSettings){
+                $(".content").slideUp()
+            }
+            //setTimeout(settingsleave, 1000);
+    }
+        
     $.ajax({
         type:"GET",
         url: servername+"/getRate",

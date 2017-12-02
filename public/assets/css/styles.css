@@ -313,24 +313,30 @@ td{
 .content{
     /* display: none; */
     z-index: -1;
-    display: inline-block;
+    display: none;
     margin-left:1em;
     /* transform: scale(0); */
     /* -webkit-transform: translate(-50px, 0px); /* Safari */
     /* transform: translate(-50px, 0px);
     transform: scale(0.01);s
     transition: transform 0.3s ease-in-out;  */
+/*
     animation: visibBack 0.2s ease forwards;
     animation-delay: 1s;
+*/
 }
-.settings:hover .content{
+/*.gear:hover .content{*/
+/*    display: inline-block;*/
+/*    animation: visib 0.3s ease-in forwards;*/
+    
+/*}*/
+/*
+.content:hover{
     display: inline-block;
     animation: visib 0.3s ease-in forwards;
-    /* transform: scale(1);
-    transform: translate(0,0);
-    transition: transform 0.3s ease-in-out; */
 }
-.settings:hover .gear{
+*/
+.gear:hover{
     cursor: pointer;
     animation: rot 0.5s ease-in-out forwards; 
 }
@@ -401,31 +407,35 @@ button#ok:active{
 }
 
 @keyframes visib {
-    0% {
+    from {
       transform: scale(0);
     }
+/*
     70%{
         transform: scale(1.1);
     }
     80%{
         transform: scale(0.9);
     }
-    100% {
+*/
+    to {
       transform: scale(1);
     }
 }
 
 @keyframes visibBack {
-    0% {
+    from {
       transform: scale(1);
     }
+/*
     20%{
         transform: scale(1.1);
     }
     30%{
         transform: scale(0.9);
     }
-    100% {
+*/
+    to {
       transform: scale(0);
     }
 }
