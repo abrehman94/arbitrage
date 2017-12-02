@@ -214,8 +214,8 @@ $(document).ready(function(){
                 if(count==0)$(".koinex span").text("-");
                 if(coin=="btc" || coin =="eth" || coin == "bch"){
                     koinex = {
-                        sell: Math.round(parseFloat((data.stats[String(coin).toUpperCase()].lowest_ask)*10))/10,
-                        buy: Math.round(parseFloat((data.stats[String(coin).toUpperCase()].highest_bid)*10))/10
+                        sell: Math.round(parseFloat((data.stats[String(coin).toUpperCase()].lowest_ask)/10))/10,
+                        buy: Math.round(parseFloat((data.stats[String(coin).toUpperCase()].highest_bid)/10))/10
                     }
                 }
                 if(curr=="inr"){
