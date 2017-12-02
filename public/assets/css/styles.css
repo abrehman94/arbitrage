@@ -43,13 +43,17 @@ strong{
     
 }
 .option p, .currency p{
+    text-align: center;
+    width:3.3em;
     font-size: 1.3em;
-    display: inline;
+    display: inline-block;
+    box-sizing: border-box;
     padding:0.5%;
     margin:0px;
     color: #fff;
-    background-color: #1e5157;
+    background: linear-gradient(#5fa4aa, #1e5157);
     border: 1px solid #5fa4aa;
+    border-radius:10%;
 }
 
 .option {
@@ -57,18 +61,22 @@ strong{
 }
 
 .button-holder .highlight{
-    box-sizing: border-box;
-    border:1px solid rgba(7, 15, 54,0.5);
-    color: #000;
-    border: 1px solid black;
-    background-color: #9fdee6;
+    width:5em;
+    color: #333;
+    border: 1px solid #fa2;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    text-shadow: 0px 1px 0p #ffee66;
 }
+
 .button-holder .highlight:hover{
+    border: 1px solid #fa2;
     cursor: default;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
 }
 
 .button-holder p:hover{
     border: 1px solid black;
+    background: linear-gradient(#1e5157,#5fa4aa);
     cursor: pointer;
 }
 
@@ -80,7 +88,7 @@ table,tr,th,td{
     
 }
 table{
-    width:55%;
+    width:60%;
     
 }
 table .block{
@@ -94,7 +102,7 @@ tr{width:100%;}
 td{
     box-sizing: border-box;
     padding:1% 0 1% 1%;
-    width:8.57%;
+    width:10%;
     padding-bottom: 12.85%;
     height: 0;
     position: relative;
@@ -286,11 +294,14 @@ td{
 
 /* gear */
 
+/*
 .settings, .content, .fees, .update, .ok{
     display: inline;
 }
+*/
 .settings{
     position: relative;
+    display: inline;
 }
 .gear {
     z-index: 1;
@@ -302,41 +313,48 @@ td{
 	-webkit-filter: drop-shadow(1px 1px 3px #1e5157);
 	background-position: 50% 50%;
     vertical-align: middle;
-    animation: rotBack 0.5s ease-in-out forwards; 
-    animation-delay: 0.2s;
+/*    animation: rotBack 0.5s ease-in-out forwards; */
+/*    animation-delay: 0.2s;*/
 }
 .gear:before, .gear:after {
 	position: absolute;
 	border-radius: 50%;
 	content: '';
 }
+.rotBack{
+    animation: rotBack 0.5s ease-in-out forwards; 
+/*    animation-delay: 0.2s;*/
+}
 .content{
     /* display: none; */
-    z-index: -1;
+    width:10em;
+    background: #777;
+    border-radius: 5%;
+    color:white;
+    position: absolute;
+    padding: 2em;
+    left:1.6em;
+    right:0em;
+    z-index: 1;
     display: none;
     margin-left:1em;
-    /* transform: scale(0); */
-    /* -webkit-transform: translate(-50px, 0px); /* Safari */
-    /* transform: translate(-50px, 0px);
-    transform: scale(0.01);s
-    transition: transform 0.3s ease-in-out;  */
-/*
-    animation: visibBack 0.2s ease forwards;
-    animation-delay: 1s;
-*/
 }
-/*.gear:hover .content{*/
-/*    display: inline-block;*/
-/*    animation: visib 0.3s ease-in forwards;*/
-    
-/*}*/
-/*
-.content:hover{
-    display: inline-block;
-    animation: visib 0.3s ease-in forwards;
+.content div{
+    display: table;
+    margin: 0.3em auto;
 }
-*/
-.gear:hover{
+.content .fees div:first-child{
+    font-size: 1.1em;
+    padding-bottom: 0.5em;
+}
+.content .update div:first-child{
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    font-size: 1.1em;
+}
+
+
+.rot{
     cursor: pointer;
     animation: rot 0.5s ease-in-out forwards; 
 }
@@ -363,32 +381,28 @@ td{
 
 
 
-
+input{
+/*    text-align: center;*/
+}
 .fees input{
-    width:3.1em;
+    width:6em;
 }
 .fees{
-    padding-right: 0.5em;
-    border-right: 1px solid #5fa4aa;
+/*    border-bottom: 1px solid #5fa4aa;*/
 }
 #updateInput{
     width:2.5em;
 }
 .update{
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    border-right: 1px solid #5fa4aa;
-}
-.content{
-    padding-top:2em;
-    padding-bottom: 2em;
-    padding-right:2em;
+/*    border-bottom: 1px solid #5fa4aa;*/
 }
 
 button#ok{
     margin-left: 0.5em;
     font-size: 1.2em;
     padding: 0.2em;
+    margin: auto;
+    margin-top: 1em;
     width: 4em;
     color: #fff;
     background: linear-gradient( #5fa4aa,#1e5157);

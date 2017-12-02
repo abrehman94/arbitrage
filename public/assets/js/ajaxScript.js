@@ -61,8 +61,13 @@ $(document).ready(function(){
     var mouseOnSettings = false;
     $(".gear").on({
         mouseenter: function(){
-            $(".content").slideDown();
+            $(".gear").addClass("rot");
+            $(".content").slideDown(()=>$(".gear").removeClass("rot"));
             mouseOnSettings = true;
+        },
+        mouseleave: function(){
+            mouseOnSettings = false;
+            setTimeout(settingsleave, 500);
         }
     });
     $(".content").on({
@@ -71,11 +76,15 @@ $(document).ready(function(){
     },
     mouseleave: function(){
         mouseOnSettings = false;
-        setTimeout(settingsleave, 1000);
+        setTimeout(settingsleave, 100);
     }});
     function settingsleave(){
             if(!mouseOnSettings){
-                $(".content").slideUp()
+                $(".gear").addClass("rotBack");
+                $(".content").slideUp(()=>{
+                    $(".gear").removeClass("rotBack");
+                });
+                
             }
             //setTimeout(settingsleave, 1000);
     }
@@ -159,7 +168,7 @@ $(document).ready(function(){
             ajaxController(false);
         }
         else{
-            setTimeout(reRun,50);
+            setTimeout(reRun,5);
         }
     }
 
