@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    //var servername = "https://quiet-hamlet-43198.herokuapp.com";
-	var servername = "http://localhost:4000"
+    var servername = "https://quiet-hamlet-43198.herokuapp.com";
+	//var servername = "http://localhost:4000"
     var coin = "btc";
     var count = 0;
     var fname ="";
