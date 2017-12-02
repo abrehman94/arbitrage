@@ -27,7 +27,7 @@ var url6 = "https://cex.io/api/ticker/";//BTC/USD";
 app.use(express.static(publicPath));
 
 app.get("/getRate",(req,res)=>{
-    res.send(trade.rate);
+    res.send({rate:trade.rate});
 });
 
 app.get("/getDataCoinsecure/:coin/:curr", function(req,res){

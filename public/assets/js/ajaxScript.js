@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var servername = "https://quiet-hamlet-43198.herokuapp.com";
-	//var servername = "http://localhost:4000"
+    //var servername = "https://quiet-hamlet-43198.herokuapp.com";
+	var servername = "http://localhost:4000"
     var coin = "btc";
     var count = 0;
     var fname ="";
@@ -17,6 +17,7 @@ $(document).ready(function(){
     var bitfinex = undefined;
     var kraken = undefined;
     var cex = undefined;
+	var mycors = "https://guarded-cliffs-21055.herokuapp.com/";
 
     function killed(){};
 
@@ -46,10 +47,10 @@ $(document).ready(function(){
 
     $.ajax({
         type:"GET",
-        url: server+"getRate",
+        url: servername+"/getRate",
         dataType: "json",
         success : (data)=>{
-            updateRate(parseFloat(data.quotes.USDINR));
+            updateRate(data.rate);
         },
         error : ()=>{
             console.log("error regarding currency conversion");
@@ -193,7 +194,7 @@ $(document).ready(function(){
 
         var koinexURL = "";
         if(coin=="btc" || coin =="eth" || coin=="bch"){
-            koinexURL = "https://koinex.in/api/ticker"; //servername+"/getDataKoinex/btc";
+            koinexURL = mycors+"https://koinex.in/api/ticker"; //servername+"/getDataKoinex/btc";
         }
         else{
             koinexURL = servername+"/returnNull.json";
@@ -523,7 +524,6 @@ function setValues(obj, string){
                 };
                 break;
             case "cx":
-                console.log("updating cex");
                 cex = {
                     buy : obj.buy,
                     sell : obj.sell
@@ -551,8 +551,6 @@ function update(){
 
     coinsecure = (coin!="btc" ? undefined : coinsecure);
     kraken = ( coin!=="btc" ? undefined : kraken);
-    
-    console.log(kraken);
 
     try{
         $(".koinex-coinsecure span:nth-of-type(2)").text(Math.round((coinsecure.buy-koinex.sell)*10)/10);

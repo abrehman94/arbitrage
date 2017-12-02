@@ -36,7 +36,8 @@ var tradeValues = function(theUrl, name,curr,coin){
             url: theUrl,
             json: true
         },(error,response,body)=>{
-            if(response.statusCode==200){
+            try{
+				if(response.statusCode==200){
                 var b_bid;
                 var b_ask;
                 try{
@@ -85,17 +86,22 @@ var tradeValues = function(theUrl, name,curr,coin){
                     resolve({bid:0000,ask:0000});
                 }
                 
-            }
-            else if(error){
-                resolve({bid:0000,ask:0000});
-            }
-            else{
-                console.log(name,"unavailable");
-                // console.log(body);
-                resolve({bid:0000,ask:0000});
-                //reject("errorCode"+response.statusCode);
-            }
-        });
+				}
+				else if(error){
+					resolve({bid:0000,ask:0000});
+				}
+				else{
+					console.log(name,"unavailable");
+					// console.log(body);
+					resolve({bid:0000,ask:0000});
+					//reject("errorCode"+response.statusCode);
+				}
+			}
+			catch(e){
+				console.log("no response");
+			}
+        }
+			);
         }
     )
 }
