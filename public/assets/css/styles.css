@@ -321,7 +321,7 @@ td{
     transform: scale(0.01);s
     transition: transform 0.3s ease-in-out;  */
     animation: visibBack 0.2s ease forwards;
-    animation-delay: 0.4s;
+    animation-delay: 1s;
 }
 .settings:hover .content{
     display: inline-block;
@@ -358,7 +358,7 @@ td{
 
 
 
-#feesInput{
+.fees input{
     width:3.1em;
 }
 .fees{
