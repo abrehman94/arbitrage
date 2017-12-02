@@ -191,7 +191,7 @@ $(document).ready(function(){
                 }
         })
         .fail(()=>console.log("error with coinsecure"))
-		if(count%3==0){
+		if(count%8==0){
         var koinexURL = "";
         if(coin=="btc" || coin =="eth" || coin=="bch"){
             koinexURL = mycors+"https://koinex.in/api/ticker"; //servername+"/getDataKoinex/btc";
@@ -456,13 +456,13 @@ $(document).ready(function(){
                             update();
                             var list = $(".cex, .kraken, .bitfinex, .koinex, .coinsecure, .bitbay");
                             colorify(list);
-                            count++;
                         }
                         
                         
                     })
                     .fail(()=>console.log("error with coinsecure"))
                     boolKilled=true;
+					count++;
                 }
             catch(err){
                 console.log("killed");
