@@ -113,8 +113,9 @@ app.get("/getDataKraken/:coin/:curr", function(req,res){
         res.send(sendNull);
     }
     else{
-        var coinName = (req.params.curr === "btc" ? "XBT" : String(req.params.curr).toUpperCase() );
+        var coinName = (req.params.coin === "btc" ? "XBT" : String(req.params.coin).toUpperCase() );
         var url5New = url5+coinName+"USD";
+		console.log(url5New);
         tradeValues(url5New,"kraken",req.params.curr)
         .then((data)=>{
             res.send({
