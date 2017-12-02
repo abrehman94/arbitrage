@@ -7,7 +7,7 @@ $(document).ready(function(){
     var cs = kx = bb = bf = kr = cx = false;  
     var timeInterval=5000;
     var curr = "usd";
-    var rate=62.5;
+    var rate=64.5;
     var fees = 0.00;
     var stop=false;
     var boolKilled = false;
@@ -46,15 +46,20 @@ $(document).ready(function(){
 
     $.ajax({
         type:"GET",
-        url: "https://cors-anywhere.herokuapp.com/http://www.apilayer.net/api/live?access_key=496c69ded145c03cb772f8ea7ce48546",
+        url: server+"getRate",
         dataType: "json",
         success : (data)=>{
-            rate = parseFloat(parseInt(data.quotes.USDINR*10)/10);
+            updateRate(parseFloat(data.quotes.USDINR));
         },
         error : ()=>{
             console.log("error regarding currency conversion");
         }
     })
+	
+	function updateRate(value){
+		console.log("rate updated");
+		rate=value;
+	}
 
     $(".btc").click(()=>{
         if(coin!=="btc"){

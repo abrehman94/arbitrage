@@ -23,12 +23,12 @@ function updateRate(val){
     rate = val;
 }
 function getRate(){
-    request({url:"http://www.apilayer.net/api/live?access_key=496c69ded145c03cb772f8ea7ce48546",json:true},(err,res,body)=>{
+    request({url:"http://www.apilayer.net/api/live?access_key=5fbd254e69b14968334abe792c9b1501",json:true},(err,res,body)=>{
         updateRate(parseFloat(body.quotes.USDINR*10/10));
     })
 }
 getRate();
-setInterval(getRate,1800000);
+setInterval(getRate,3600000);
 
 var tradeValues = function(theUrl, name,curr,coin){
     return new Promise((resolve,reject)=>{
