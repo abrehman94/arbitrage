@@ -55,9 +55,9 @@ $(document).ready(function(){
             feesbf = parseFloat(document.getElementById("feesbf").value) || 0.00;
             feeskr = parseFloat(document.getElementById("feeskr").value) || 0.00;
             feescx = parseFloat(document.getElementById("feescx").value) || 0.00;
-            fees=true;
-            buttonPressed("feestrue", "fees-option");
-            // buttonPressed("nothing-Class", "nothing-Class");
+            //fees=true;
+            //buttonPressed("feestrue", "fees-option");
+             buttonPressed("nothing-Class", "nothing-Class");
             
         }
     });
