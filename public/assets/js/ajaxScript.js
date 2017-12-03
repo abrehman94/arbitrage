@@ -58,37 +58,7 @@ $(document).ready(function(){
             
         }
     });
-    var mouseOnSettings = false;
-    $(".gear").on({
-        mouseenter: function(){
-            $(".gear").addClass("rot");
-            $(".content").slideDown(()=>$(".gear").removeClass("rot"));
-            mouseOnSettings = true;
-        },
-        mouseleave: function(){
-            mouseOnSettings = false;
-            setTimeout(settingsleave, 500);
-        }
-    });
-    $(".content").on({
-    mouseenter: function(){
-        mouseOnSettings = true;
-    },
-    mouseleave: function(){
-        mouseOnSettings = false;
-        setTimeout(settingsleave, 100);
-    }});
-    function settingsleave(){
-            if(!mouseOnSettings){
-                $(".gear").addClass("rotBack");
-                $(".content").slideUp(()=>{
-                    $(".gear").removeClass("rotBack");
-                });
-                
-            }
-            //setTimeout(settingsleave, 1000);
-    }
-        
+
     $.ajax({
         type:"GET",
         url: servername+"/getRate",
@@ -102,6 +72,7 @@ $(document).ready(function(){
     })
 	
 	function updateRate(value){
+		console.log("rate updated");
 		rate=value;
 	}
 
@@ -168,7 +139,7 @@ $(document).ready(function(){
             ajaxController(false);
         }
         else{
-            setTimeout(reRun,5);
+            setTimeout(reRun,50);
         }
     }
 
@@ -257,13 +228,13 @@ $(document).ready(function(){
                 if(count==0)$(".koinex span").text("-");
                 if(coin=="btc" || coin =="eth" || coin == "bch"){
                     koinex = {
-                        sell: Math.round(parseFloat((data.stats[String(coin).toUpperCase()].lowest_ask)*10))/10,
-                        buy: Math.round(parseFloat((data.stats[String(coin).toUpperCase()].highest_bid)*10))/10
+                        sell: Math.round(parseFloat((data.stats[String(coin).toUpperCase()].lowest_ask)/10))/10,
+                        buy: Math.round(parseFloat((data.stats[String(coin).toUpperCase()].highest_bid)/10))/10
                     }
                 }
-                if(curr=="usd"){
-                    koinex.sell = Math.round((parseFloat(koinex.sell/rate)*10))/10;
-                    koinex.buy = Math.round((parseFloat(koinex.buy/rate)*10))/10;
+                if(curr=="inr"){
+                    koinex.sell = Math.round(parseFloat(koinex.sell*rate*10))/10;
+                    koinex.buy = Math.round(parseFloat(koinex.buy*rate*10))/10;
                 }
 
                 if(feeskx!==0.00){
@@ -340,7 +311,7 @@ $(document).ready(function(){
 
             }
         })
-        .fail(()=>console.log("error with bitbay"))
+        .fail(()=>console.log("error with coinsecure"))
         if(stop)throw killed();
             var bitfinexURL="";
             bitfinexURL=servername+"/getDataBitfinex/"+coin+"/"+curr;
@@ -394,7 +365,7 @@ $(document).ready(function(){
 
                 }
             })
-            .fail(()=>console.log("error with bitfinex"))
+            .fail(()=>console.log("error with coinsecure"))
 
             if(stop)throw killed();
             
@@ -430,11 +401,11 @@ $(document).ready(function(){
                     $(".kraken span:nth-of-type(4)").text("buy:"+data.buy);
                     kr = true;
                     setValues(kraken,"kr");
-                    update();
-                    colorify();
+                    update(coinsecure,koinex,bitbay,bitfinex,kraken,cex);
+                    colorify(list);
                 }
             })
-            .fail(()=>console.log("error with kraken"))
+            .fail(()=>console.log("error with coinsecure"))
                     
                     if(stop)throw killed();
                     var cexURL = "";
@@ -505,11 +476,12 @@ $(document).ready(function(){
                         
                         
                     })
-                    .fail(()=>console.log("error with cex"))
+                    .fail(()=>console.log("error with coinsecure"))
                     boolKilled=true;
 					count++;
                 }
             catch(err){
+                console.log("killed");
                 boolKilled = true;
                 return;
             }
@@ -582,6 +554,10 @@ function setValues(obj, string){
 
 
 function update(){
+    // var coinsecure = {
+    //     sell : ( parseInt($(".coinsecure span:nth-of-type(3)").text().slice(5)) )  
+    // }
+    //console.log(coinsecure);
     coinsecure = isNaN(parseInt($(".coinsecure span:nth-of-type(3)").text().slice(5))) ? undefined : coinsecure;
     koinex = isNaN(parseInt($(".koinex span:nth-of-type(3)").text().slice(5))) ? undefined : koinex;
     bitbay = isNaN(parseInt($(".bitbay span:nth-of-type(3)").text().slice(5))) ? undefined : bitbay;
@@ -590,6 +566,7 @@ function update(){
     cex = isNaN(parseInt($(".cex span:nth-of-type(3)").text().slice(5))) ? undefined : cex;
 
     coinsecure = (coin!="btc" ? undefined : coinsecure);
+    kraken = ( coin!=="btc" ? undefined : kraken);
 
     try{
         $(".koinex-coinsecure span:nth-of-type(2)").text(Math.round((coinsecure.buy-koinex.sell)*10)/10);
@@ -776,6 +753,7 @@ try{
 async function colorify(){
     list = $(".data .data-holder");
     for(var i=0; i<list.length; i++){
+        //console.log($(list[i]).children("span:nth-of-type(2)"));
         try{
             if(parseInt($(list[i]).children("span:nth-of-type(2)").text()) <0){
                 $(list[i]).children("span:nth-of-type(1)").addClass("red");
