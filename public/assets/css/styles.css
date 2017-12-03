@@ -1,9 +1,13 @@
+body,div,p,table{
+    padding:0;
+    margin:0;
+}
 
 body{
     font-family: 'Montserrat', sans-serif;
     font-size: 0.8vw;
     font-weight: 600;
-    background: #efefef;
+    background: #282726
 }
 strong{
     font-size: 1.3em;
@@ -12,66 +16,99 @@ strong{
 
 .left-pane{
     position: relative;
-    top: 1.2vw;
+    /* top: 1.2vw; */
     width:20%;
     float: left;
-    height:41.9vw;
-    border:1px solid black;
+    height:100vh;
+    background-color: #a7414a;
+    /* border-right:5px solid #a7414a; */
     margin-right:4%;
 }
 .left-pane .left-heading {
     font-size: 2em;
     text-align: center;
-    display: block;
+    display: inline-block;
     width:100%;
+    padding:0;
     margin:0;
     overflow:auto;
-    background-color: #9fdee6;
+    height:10vh;
+    background-color: #563838;
 }
+.left-pane .left-heading .left-text{
+    display: inline;
+    line-height: 10vh;
+    color:white;
+    text-shadow: 1px 0px 3px #a7414a;
+    margin:0;
+    padding:0;
+}
+
 .right-pane{
     margin-left:4%;
     float:left;
-    width:70%;
+    width:72%;
+    height:100vh;
 }
 
 .button-holder{
     /* margin-top:2.5%; */
-    margin-bottom: 0%;
+    height:10vh;
+    padding-top:2.5vh;
+    box-sizing: border-box;
+    width:60%;
 }
-.option,.currency{
+.option,.currency, .fees-btn{
     display: inline;
     
 }
-.option p, .currency p{
+.option p, .currency p, .fees-btn p{
+    text-align: center;
+    width:3.3em;
     font-size: 1.3em;
-    display: inline;
+    display: inline-block;
+    box-sizing: border-box;
     padding:0.5%;
     margin:0px;
     color: #fff;
-    background-color: #1e5157;
-    border: 1px solid #5fa4aa;
+    background: linear-gradient(#6a8a82, #1e5157);
+    border: 3px solid #262728;
+    border-radius:10%;
 }
-
+.fees-btn{
+    margin-right:5%;
+}
+.fees-btn p.fees-option{
+    width: 5em;
+}
+.fees-btn p.highlight{
+    width:6em;
+}
 .option {
-    margin-right:20%;
+    margin-right:5%;
+
 }
 
 .button-holder .highlight{
-    box-sizing: border-box;
-    border:1px solid rgba(7, 15, 54,0.5);
-    color: #000;
-    border: 1px solid black;
-    background-color: #9fdee6;
+    width:5em;
+    color: #333;
+    border: 3px solid #fa2;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    text-shadow: 0px 1px 0p #ffee66;
 }
+
 .button-holder .highlight:hover{
+    border: 3px solid #fa2;
     cursor: default;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
 }
 
 .button-holder p:hover{
     border: 1px solid black;
+    background: linear-gradient(#6a8a82,#5fa4aa);
     cursor: pointer;
 }
-
+/*  */
 
 table,tr,th,td{
     margin:0;
@@ -80,13 +117,14 @@ table,tr,th,td{
     
 }
 table{
-    width:55%;
-    
+    width:60%;
+    border:5px solid #565758;
+    border-collapse: collapse;
 }
 table .block{
     display: block;
 }
-table, tr, td{
+tr, td{
     border-collapse: collapse;
     border: 1px solid black;
 }
@@ -94,7 +132,7 @@ tr{width:100%;}
 td{
     box-sizing: border-box;
     padding:1% 0 1% 1%;
-    width:8.57%;
+    width:10%;
     padding-bottom: 12.85%;
     height: 0;
     position: relative;
@@ -108,10 +146,32 @@ td{
 }
 
 .desc{
-    background:#dedede;
+    padding-left:0;
+    padding-right:0;
+    background:#888;
+    color:#fff;
+}
+.desc .data-holder{
+    display: block;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+.desc .data-holder .block{
+    /* text-transform: uppercase; */
+    display: block;
+    width:100%;
+    letter-spacing: 0.1em;
+    transform: scaleY(1.3);
+    line-height: 10vh;
+    text-align:center;
+    font-size: 1em;
+    text-shadow: 1px 0px 0px #333, -1px 0px 0px #333,0px 1px 0px #333,0px -1px 0px #333 ;
 }
 .data{
-    background: #FAF3DD;
+    /* background: linear-gradient(#efefef, #eee ,#efefef ); */
+    background: #dedede;
+    color:#262728;
 }
 @media only screen and (max-width: 960px){
     table{
@@ -141,10 +201,10 @@ td{
     }
 }
 .null{
-    background:#dedede;
+    background:#888;
 }
 .null span{
-    color:#dedede;
+    color:#888;
 }
 .red{
     color: #bd0f0f;
@@ -286,51 +346,69 @@ td{
 
 /* gear */
 
+/*
 .settings, .content, .fees, .update, .ok{
     display: inline;
 }
+*/
 .settings{
     position: relative;
+    float:right;
+    display: inline;
 }
 .gear {
     z-index: 1;
     margin-left:2em;
 	display: inline-block;
-	position: relative;
+    position: relative;
+    top:-0.5vh;
     border-radius: 50%;
     filter: drop-shadow(1px 1px 3px #1e5157);
 	-webkit-filter: drop-shadow(1px 1px 3px #1e5157);
 	background-position: 50% 50%;
     vertical-align: middle;
-    animation: rotBack 0.5s ease-in-out forwards; 
-    animation-delay: 0.2s;
+/*    animation: rotBack 0.5s ease-in-out forwards; */
+/*    animation-delay: 0.2s;*/
 }
 .gear:before, .gear:after {
 	position: absolute;
 	border-radius: 50%;
 	content: '';
 }
+.rotBack{
+    animation: rotBack 0.5s ease-in-out forwards; 
+/*    animation-delay: 0.2s;*/
+}
 .content{
     /* display: none; */
-    z-index: -1;
-    display: inline-block;
+    width:10em;
+    background: #777;
+    border-radius: 5%;
+    color:white;
+    position: absolute;
+    padding: 2em;
+    left:1.6em;
+    right:0em;
+    z-index: 1;
+    display: none;
     margin-left:1em;
-    /* transform: scale(0); */
-    /* -webkit-transform: translate(-50px, 0px); /* Safari */
-    /* transform: translate(-50px, 0px);
-    transform: scale(0.01);s
-    transition: transform 0.3s ease-in-out;  */
-    animation: visibBack 0.2s ease forwards;
-    animation-delay: 1s;
 }
-.settings:hover .content{
-    display: inline-block;
-    animation: visib 0.3s ease-in forwards;
-    /* transform: scale(1);
-    transform: translate(0,0);
-    transition: transform 0.3s ease-in-out; */
+.content div{
+    display: table;
+    margin: 0.3em auto;
 }
-.settings:hover .gear{
+.content .fees div:first-child{
+    font-size: 1.1em;
+    padding-bottom: 0.5em;
+}
+.content .update div:first-child{
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    font-size: 1.1em;
+}
+
+
+.rot{
     cursor: pointer;
     animation: rot 0.5s ease-in-out forwards; 
 }
@@ -357,32 +435,28 @@ td{
 
 
 
-
+input{
+/*    text-align: center;*/
+}
 .fees input{
-    width:3.1em;
+    width:6em;
 }
 .fees{
-    padding-right: 0.5em;
-    border-right: 1px solid #5fa4aa;
+/*    border-bottom: 1px solid #5fa4aa;*/
 }
 #updateInput{
     width:2.5em;
 }
 .update{
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    border-right: 1px solid #5fa4aa;
-}
-.content{
-    padding-top:2em;
-    padding-bottom: 2em;
-    padding-right:2em;
+/*    border-bottom: 1px solid #5fa4aa;*/
 }
 
 button#ok{
     margin-left: 0.5em;
     font-size: 1.2em;
     padding: 0.2em;
+    margin: auto;
+    margin-top: 1em;
     width: 4em;
     color: #fff;
     background: linear-gradient( #5fa4aa,#1e5157);
@@ -401,31 +475,35 @@ button#ok:active{
 }
 
 @keyframes visib {
-    0% {
+    from {
       transform: scale(0);
     }
+/*
     70%{
         transform: scale(1.1);
     }
     80%{
         transform: scale(0.9);
     }
-    100% {
+*/
+    to {
       transform: scale(1);
     }
 }
 
 @keyframes visibBack {
-    0% {
+    from {
       transform: scale(1);
     }
+/*
     20%{
         transform: scale(1.1);
     }
     30%{
         transform: scale(0.9);
     }
-    100% {
+*/
+    to {
       transform: scale(0);
     }
 }

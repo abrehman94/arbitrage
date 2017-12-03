@@ -20,7 +20,7 @@ var url3_1 = "https://bitbay.net/API/Public/";
 var url3_2 = "USD/ticker.json";
 //var url3 = "https://cors-anywhere.herokuapp.com/https://bitbay.net/API/Public/btc/market.json";
 var url4 = "https://api.bitfinex.com/v1/pubticker/";//btcusd";
-var url5 = "https://api.kraken.com/0/public/Ticker?pair="//XBTUSD";
+var url5 = "https://api.kraken.com/0/public/Ticker?pair=";//XBTUSD";
 var url6 = "https://cex.io/api/ticker/";//BTC/USD";
 
 
@@ -113,9 +113,9 @@ app.get("/getDataKraken/:coin/:curr", function(req,res){
         res.send(sendNull);
     }
     else{
-        var coinName = (req.params.curr === "btc" ? "XBT" : String(req.params.curr).toUpperCase() );
-        var url5New = ulr5+coinName+"USD";
-        tradeValues(url5,"kraken",req.params.curr)
+        var coinName = (req.params.coin === "btc" ? "XBT" : String(req.params.coin).toUpperCase() );
+        var url5New = url5+coinName+"USD";
+        tradeValues(url5New,"kraken",req.params.curr, req.params.coin)
         .then((data)=>{
             res.send({
                 buy: data.bid,

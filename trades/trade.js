@@ -42,8 +42,8 @@ var tradeValues = function(theUrl, name,curr,coin){
                 var b_ask;
                 try{
                     if(name=="coinsecure"){
-                        b_bid=parseFloat(body.message.bid/10000);
-                        b_ask=parseFloat(body.message.ask/10000);
+                        b_bid=parseFloat(body.message.bid/100)/rate;
+                        b_ask=parseFloat(body.message.ask/100)/rate;
                     }
                     else if(name=="koinex"){
                         b_bid=parseFloat(body.stats.BTC.highest_bid);
@@ -58,8 +58,18 @@ var tradeValues = function(theUrl, name,curr,coin){
                         b_ask=parseFloat(body.ask);
                     }
                     else if(name=="kraken"){
-                        b_bid=parseFloat(body.result.XXBTZUSD.b[0]);
-                        b_ask=parseFloat(body.result.XXBTZUSD.a[0]);
+                        if(coin==="btc"){
+							b_bid=parseFloat(body.result.XXBTZUSD.b[0]);
+							b_ask=parseFloat(body.result.XXBTZUSD.a[0]);
+						}
+						else if(coin==="bch"){
+							b_bid=parseFloat(body.result.BCHUSD.b[0]);
+							b_ask=parseFloat(body.result.BCHUSD.a[0]);
+						}
+						else if(coin==="eth"){
+							b_bid=parseFloat(body.result.XETHZUSD.b[0]);
+							b_ask=parseFloat(body.result.XETHZUSD.a[0]);
+						}
                     }
                     else if(name=="cex.io"){
                         
@@ -73,7 +83,7 @@ var tradeValues = function(theUrl, name,curr,coin){
                         bid: Math.round(b_bid*10)/10,
                         ask: Math.round(b_ask*10)/10
                     }
-                    if(curr==="inr"){
+                    if(curr==="inr" ){
                         tempObj.bid = Math.round(tempObj.bid*rate*10)/10;
                         tempObj.ask = Math.round(tempObj.ask*rate*10)/10;
                     }

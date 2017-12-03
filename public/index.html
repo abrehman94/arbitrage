@@ -14,11 +14,16 @@
     <div class="container">
         <div class="loading">Loading&#8230;</div>
         <div class="left-pane">
-            <h6 class="left-heading">Arbitrage</h6>
+            <div class="left-heading"><p class="left-text">Arbitrage</p></div>
+            <div class=left-content></div>
         </div>
     
     <div class="right-pane">
         <div class="button-holder">
+            <div class="fees-btn">
+                    <p class="fees-option feestrue">Fees</p>
+                    <p class="fees-option nofees highlight">No Fees</p>
+            </div>
             <div class="option">
                 <p class="btn-option btc highlight">BTC</p>
                 <p class="btn-option bch">BCH</p>
@@ -37,15 +42,17 @@
                 <div class='gear g4'></div>
                 <div class="content">
                     <div class="fees">
-                        <label>Fees: <input title="coinsecure" id="feescs" type="number" step="0.01" min="0.00" max="9.99" placeholder="coinsecure"><strong>% </strong>
-                        <input title="koinex" id="feeskx" type="number" step="0.01" min="0.00" max="9.99" placeholder="koinex"><strong>% </strong>
-                        <input title="bitbay" id="feesbb" type="number" step="0.01" min="0.00" max="9.99" placeholder="bitbay"><strong>% </strong>
-                        <input title="bitfinex" id="feesbf" type="number" step="0.01" min="0.00" max="9.99" placeholder="bitfinex"><strong>% </strong>
-                        <input title="kraken" id="feeskr" type="number" step="0.01" min="0.00" max="9.99" placeholder="kraken"><strong>% </strong>
-                        <input title="cex.io" id="feescx" type="number" step="0.01" min="0.00" max="9.99" placeholder="cex"><strong>% </strong></label>
+                        <div><label>Fees:</label></div> 
+                        <div><input title="coinsecure" id="feescs" type="number" step="0.01" min="0.00" max="9.99" placeholder="coinsecure"><strong>% </strong></div>
+                        <div> <input title="koinex" id="feeskx" type="number" step="0.01" min="0.00" max="9.99" placeholder="koinex"><strong>% </strong></div>
+                        <div><input title="bitbay" id="feesbb" type="number" step="0.01" min="0.00" max="9.99" placeholder="bitbay"><strong>% </strong></div>
+                        <div><input title="bitfinex" id="feesbf" type="number" step="0.01" min="0.00" max="9.99" placeholder="bitfinex"><strong>% </strong></div>
+                        <div><input title="kraken" id="feeskr" type="number" step="0.01" min="0.00" max="9.99" placeholder="kraken"><strong>% </strong></div>
+                        <div><input title="cex.io" id="feescx" type="number" step="0.01" min="0.00" max="9.99" placeholder="cex"><strong>% </strong></div>
                     </div>
                     <div class="update">
-                        <label>Update Values: <input id="updateInput" type="number" step="1" min="5" max="30" value="5"><strong> s</strong></label>
+                        <div><label>Update Interval : </label></div>
+                        <div><input id="updateInput" type="number" step="1" min="5" max="30" value="5"><strong> s</strong></div>
                     </div>
                     <div class="ok">
                         <button id="ok">OK</button>
@@ -53,28 +60,42 @@
                 </div>
             </div>
         </div>
+    <div class="tableholder">
    <table>
        <tr>
            <td class="desc">
-               <div class="data-holder"><span class="block"></span></div>
+               <div class="data-holder"><span class="block"></span><span class="block"></span>
+                    </div>
            </td>
            <td class="desc">
-               <div class="data-holder"><span class="block">Coinsecure</span></div>
+               <div class="data-holder"><span class="block">Coinsecure</span><span class="block"></span>
+                    <span class="block"></span>
+                    <span class="block"></span></div>
            </td>
            <td class="desc">
-               <div class="data-holder"><span class="block"></span>Koinex</div>
+               <div class="data-holder"><span class="block">Koinex</span><span class="block"></span>
+                    <span class="block"></span>
+                    <span class="block"></span></div>
            </td>
            <td class="desc">
-               <div class="data-holder"><span class="block"></span>Bitbay</div>
+               <div class="data-holder"><span class="block">Bitbay</span><span class="block"></span>
+                    <span class="block"></span>
+                    <span class="block"></span></div>
            </td>
            <td class="desc">
-               <div class="data-holder"><span class="block"></span>Bitfinex</div>
+               <div class="data-holder"><span class="block">Bitfinex</span><span class="block"></span>
+                    <span class="block"></span>
+                    <span class="block"></span></div>
            </td>
            <td class="desc">
-               <div class="data-holder"><span class="block">Kraken</span></div>
+               <div class="data-holder"><span class="block">Kraken</span><span class="block"></span>
+                    <span class="block"></span>
+                    <span class="block"></span></div>
            </td>
            <td class="desc">
-               <div class="data-holder"><span class="block">Cex.io</span></div>
+               <div class="data-holder"><span class="block">Cex.io</span><span class="block"></span>
+                    <span class="block"></span>
+                    <span class="block"></span></div>
            </td>
            
        </tr>
@@ -82,8 +103,7 @@
        <tr>
            <td class="desc"><div class="data-holder"><span class="block">Coinsecure</span></div></td>
            <td class="desc null">
-               <div class="data-holder">
-               </div>
+               
            </td>
            <td class="data">
                <div class="data-holder coinsecure coinsecure-koinex">
@@ -127,7 +147,7 @@
            </td>
        </tr>
        <tr>
-           <td class="desc"><div class="data-holder"><span class="block"></span>Koinex</div></td>
+           <td class="desc"><div class="data-holder"><span class="block">Koinex</span></div></td>
            <td class="data">
                <div class="data-holder koinex koinex-coinsecure">
                    <span class="block"></span>
@@ -174,7 +194,7 @@
            </td>
        </tr>
        <tr>
-           <td class="desc"><div class="data-holder"><span class="block"></span>Bitbay</div></td>
+           <td class="desc"><div class="data-holder"><span class="block">Bitbay</span></div></td>
            <td class="data">
                <div class="data-holder bitbay bitbay-coinsecure">
                    <span class="block"></span>
@@ -221,7 +241,7 @@
            </td>
        </tr>
        <tr>
-           <td class="desc"><div class="data-holder"><span class="block"></span>Bitfinex</div></td>
+           <td class="desc"><div class="data-holder"><span class="block">Bitfinex</span></div></td>
            <td class="data">
                <div class="data-holder bitfinex bitfinex-coinsecure">
                    <span class="block"></span>
@@ -268,7 +288,7 @@
            </td>
        </tr>
        <tr>
-           <td class="desc"><div class="data-holder"><span class="block"></span>Kraken</div></td>
+           <td class="desc"><div class="data-holder"><span class="block">Kraken</span></div></td>
            <td class="data">
                <div class="data-holder kraken kraken-coinsecure">
                    <span class="block"></span>
@@ -315,7 +335,7 @@
            </td>
        </tr>
        <tr>
-           <td class="desc"><div class="data-holder"><span class="block"></span>Cex.io</div></td>
+           <td class="desc"><div class="data-holder"><span class="block">Cex.io</span></div></td>
            <td class="data">
                <div class="data-holder cex cex-coinsecure">
                    <span class="block"></span>
@@ -363,6 +383,7 @@
        </tr>
        
    </table>
+    </div>
 </div>
 </div>
 </body>
