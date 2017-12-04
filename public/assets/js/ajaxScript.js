@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var servername = "https://quiet-hamlet-43198.herokuapp.com";
-	//var servername = "http://localhost:4000"
+    //var servername = "http://localhost:4000"
     var coin = "btc";
     var count = 0;
     var fname ="";
@@ -24,7 +24,7 @@ $(document).ready(function(){
     var kraken = undefined;
     var cex = undefined;
 	var mycors = "https://guarded-cliffs-21055.herokuapp.com/";
-
+    $(".desc .data-holder span:nth-of-type(2)").after("<br/>");
     function killed(){};
 
     $(".data .data-holder span:nth-of-type(1)").text("loading");
@@ -55,9 +55,9 @@ $(document).ready(function(){
             feesbf = parseFloat(document.getElementById("feesbf").value) || 0.00;
             feeskr = parseFloat(document.getElementById("feeskr").value) || 0.00;
             feescx = parseFloat(document.getElementById("feescx").value) || 0.00;
-            //fees=true;
-            //buttonPressed("feestrue", "fees-option");
-             buttonPressed("nothing-Class", "nothing-Class");
+            fees=true;
+            buttonPressed("feestrue", "fees-option");
+            // buttonPressed("nothing-Class", "nothing-Class");
             
         }
     });
@@ -164,6 +164,8 @@ $(document).ready(function(){
         reNew();
         $("."+theClass).removeClass("highlight");
         $("."+btn).addClass("highlight");
+        $(".desc .data-holder span:nth-of-type(3)").text("");
+        $(".desc .data-holder span:nth-of-type(4)").text("");
         addLoading();
         setTimeout(removeLoading,500);
         count=0;
@@ -226,9 +228,13 @@ $(document).ready(function(){
             if(data.sell==0 || data.buy==0){
                     $(".coinsecure").parent().addClass("null");
                     $(".coinsecure span").text("");
+                    $(".data-holder[class*= '-coinsecure']").parent().addClass("null-col");
+                    $(".cs span:nth-of-type(3)").text("");
+                    $(".cs span:nth-of-type(4)").text("");
                 }
                 else{
                     $(".coinsecure").parent().removeClass("null");
+                    $(".data-holder[class*= '-coinsecure']").parent().removeClass("null-col");
                     if(count==0)$(".coinsecure span").text("-");
                     var coinsecure = {
                         sell: data.sell,
@@ -237,8 +243,8 @@ $(document).ready(function(){
                     if(feescs!=0.00 && fees){
                         coinsecure=addFees(coinsecure,feescs);
                     }
-                    $(".coinsecure span:nth-of-type(3)").text("sell:"+data.sell);
-                    $(".coinsecure span:nth-of-type(4)").text("buy:"+data.buy);
+                    $(".cs span:nth-of-type(3)").text("sell:"+data.sell);
+                    $(".cs span:nth-of-type(4)").text("buy:"+data.buy);
                     cs = true;
                     setValues(coinsecure,"cs");
                 }
@@ -256,7 +262,10 @@ $(document).ready(function(){
         .done(function(data){
             if(data.sell==0 || data.buy==0){
                 $(".koinex").parent().addClass("null");
+                $(".data-holder[class*= '-koinex']").parent().addClass("null-col");
                 $(".koinex span").text("");
+                $(".kx span:nth-of-type(3)").text("");
+                $(".kx span:nth-of-type(4)").text("");
             }
             else{
                 var koinex ={
@@ -264,6 +273,7 @@ $(document).ready(function(){
                     buy:0
                 };
                 $(".koinex").parent().removeClass("null");
+                $(".data-holder[class*= '-koinex']").parent().removeClass("null-col");
                 if(count==0)$(".koinex span").text("-");
                 if(coin=="btc" || coin =="eth" || coin == "bch"){
                     koinex = {
@@ -279,8 +289,8 @@ $(document).ready(function(){
                 if(feeskx!==0.00 && fees){
                     koinex =addFees(koinex,feeskx);
                 }
-                $(".koinex span:nth-of-type(3)").text("sell:"+koinex.sell);
-                $(".koinex span:nth-of-type(4)").text("buy:"+koinex.buy);
+                $(".kx span:nth-of-type(3)").text("sell:"+koinex.sell);
+                $(".kx span:nth-of-type(4)").text("buy:"+koinex.buy);
                 kx = true;
                 if(coin=="eth"){
                     cs = false;
@@ -320,10 +330,14 @@ $(document).ready(function(){
             if(stop)throw killed();
             if(data.sell==0 || data.buy==0){
                 $(".bitbay").parent().addClass("null");
+                $(".data-holder[class*= '-bitbay']").parent().addClass("null-col");
                 $(".bitbay span").text("");
+                $(".bb span:nth-of-type(3)").text("");
+                $(".bb span:nth-of-type(4)").text("");
             }
             else{        
                 $(".bitbay").parent().removeClass("null");
+                $(".data-holder[class*= '-bitbay']").parent().removeClass("null-col");
                 if(count==0)$(".bitbay span").text("-");
                 var bitbay = {
                     sell: data.sell,
@@ -332,8 +346,8 @@ $(document).ready(function(){
                 if(feesbb!==0.00 && fees){
                     bitbay=addFees(bitbay,feesbb);
                 }
-                $(".bitbay span:nth-of-type(3)").text("sell:"+data.sell);
-                $(".bitbay span:nth-of-type(4)").text("buy:"+data.buy);
+                $(".bb span:nth-of-type(3)").text("sell:"+data.sell);
+                $(".bb span:nth-of-type(4)").text("buy:"+data.buy);
                 bb = true;
 
                 if(coin=="eth"){
@@ -363,10 +377,14 @@ $(document).ready(function(){
                 if(stop)throw killed();
                 if(data.sell==0 || data.buy==0){
                     $(".bitfinex").parent().addClass("null");
+                    $(".data-holder[class*= '-bitfinex']").parent().addClass("null-col");
                     $(".bitfinex span").text("");
+                    $(".bf span:nth-of-type(3)").text("");
+                    $(".bf span:nth-of-type(4)").text("");
                 }
                 else{
                     $(".bitfinex").parent().removeClass("null");
+                    $(".data-holder[class*= '-bitfinex']").parent().removeClass("null-col");
                     if(count==0)$(".bitfinex span").text("-");
                     var bitfinex = {
                         sell: data.sell,
@@ -375,8 +393,8 @@ $(document).ready(function(){
                     if(feesbf!==0.00 && fees){
                         bitfinex =addFees(bitfinex,feesbf);
                     }
-                    $(".bitfinex span:nth-of-type(3)").text("sell:"+data.sell);
-                    $(".bitfinex span:nth-of-type(4)").text("buy:"+data.buy);
+                    $(".bf span:nth-of-type(3)").text("sell:"+data.sell);
+                    $(".bf span:nth-of-type(4)").text("buy:"+data.buy);
                     bf = true;
                     if(coin=="eth"){
                         cs = false;
@@ -424,10 +442,14 @@ $(document).ready(function(){
                 if(stop)throw killed();
                 if(data.sell==0 || data.buy==0){
                     $(".kraken").parent().addClass("null");
+                    $(".data-holder[class*= '-kraken']").parent().addClass("null-col");
                     $(".kraken span").text("");
+                    $(".kr span:nth-of-type(3)").text("");
+                    $(".kr span:nth-of-type(4)").text("");
                 }
                 else{
                     $(".kraken").parent().removeClass("null");
+                    $(".data-holder[class*= '-kraken']").parent().removeClass("null-col");
                     if(count==0)$(".kraken span").text("-");
                     var kraken = {
                         sell: data.sell,
@@ -436,8 +458,8 @@ $(document).ready(function(){
                     if(feeskr!==0.00 && fees){
                         kraken=addFees(kraken,feeskr);
                     }
-                    $(".kraken span:nth-of-type(3)").text("sell:"+data.sell);
-                    $(".kraken span:nth-of-type(4)").text("buy:"+data.buy);
+                    $(".kr span:nth-of-type(3)").text("sell:"+data.sell);
+                    $(".kr span:nth-of-type(4)").text("buy:"+data.buy);
                     kr = true;
                     setValues(kraken,"kr");
                     update();
@@ -470,10 +492,15 @@ $(document).ready(function(){
                         if(stop)throw killed();
                         if(data.sell==0 || data.buy==0){
                             $(".cex").parent().addClass("null");
+                            $(".data-holder[class*= '-cex']").parent().addClass("null-col");
                             $(".cex span").text("");
+                            $(".cx span:nth-of-type(3)").text("");
+                            $(".cx span:nth-of-type(4)").text("");
+                            
                         }
                         else{
                             $(".cex").parent().removeClass("null");
+                            $(".data-holder[class*= '-cex']").parent().removeClass("null-col");
                             if(count==0)$(".cex span").text("-");
                             var cex = {
                                 sell: data.sell,
@@ -482,8 +509,8 @@ $(document).ready(function(){
                             if(feescx!==0.00 && fees){
                                 cex=addFees(cex,feescx);
                             }
-                            $(".cex span:nth-of-type(3)").text("sell:"+data.sell);
-                            $(".cex span:nth-of-type(4)").text("buy:"+data.buy);
+                            $(".cx span:nth-of-type(3)").text("sell:"+data.sell);
+                            $(".cx span:nth-of-type(4)").text("buy:"+data.buy);
                             cx = true;
                             if(coin=="eth"){
                                 cs  = false;
@@ -588,12 +615,12 @@ function setValues(obj, string){
 
 
 function update(){
-    coinsecure = isNaN(parseInt($(".coinsecure span:nth-of-type(3)").text().slice(5))) ? undefined : coinsecure;
-    koinex = isNaN(parseInt($(".koinex span:nth-of-type(3)").text().slice(5))) ? undefined : koinex;
-    bitbay = isNaN(parseInt($(".bitbay span:nth-of-type(3)").text().slice(5))) ? undefined : bitbay;
-    bitfinex = isNaN(parseInt($(".bitfinex span:nth-of-type(3)").text().slice(5))) ? undefined : bitfinex;
-    kraken = isNaN(parseInt($(".kraken span:nth-of-type(3)").text().slice(5))) ? undefined : kraken;
-    cex = isNaN(parseInt($(".cex span:nth-of-type(3)").text().slice(5))) ? undefined : cex;
+    coinsecure = isNaN(parseInt($(".cs span:nth-of-type(3)").text().slice(5))) ? undefined : coinsecure;
+    koinex = isNaN(parseInt($(".kx span:nth-of-type(3)").text().slice(5))) ? undefined : koinex;
+    bitbay = isNaN(parseInt($(".bb span:nth-of-type(3)").text().slice(5))) ? undefined : bitbay;
+    bitfinex = isNaN(parseInt($(".bf span:nth-of-type(3)").text().slice(5))) ? undefined : bitfinex;
+    kraken = isNaN(parseInt($(".kr span:nth-of-type(3)").text().slice(5))) ? undefined : kraken;
+    cex = isNaN(parseInt($(".cx span:nth-of-type(3)").text().slice(5))) ? undefined : cex;
 
     coinsecure = (coin!="btc" ? undefined : coinsecure);
 
