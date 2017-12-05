@@ -56,7 +56,7 @@ strong{
     height:10vh;
     padding-top:2.5vh;
     box-sizing: border-box;
-    width:60%;
+    width:43vw;
 }
 .option,.currency, .fees-btn{
     display: inline;
@@ -76,10 +76,10 @@ strong{
     border-radius:10%;
 }
 .fees-btn{
-    margin-right:5%;
+    margin-right:4%;
 }
 .fees-btn p.fees-option{
-    width: 5em;
+    width: 6em;
 }
 .fees-btn p.highlight{
     width:6em;

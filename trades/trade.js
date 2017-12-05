@@ -14,8 +14,6 @@
 // var url6 = "https://cex.io/api/ticker/BTC/USD";
 // //bid ask
 
-
-
 var request = require("request");
 
 var rate=64.5;
@@ -24,6 +22,9 @@ function updateRate(val){
 }
 function getRate(){
     request({url:"http://www.apilayer.net/api/live?access_key=5fbd254e69b14968334abe792c9b1501",json:true},(err,res,body)=>{
+        if(err){
+            console.log("error with rate");
+        }
         updateRate(parseFloat(body.quotes.USDINR*10/10));
     })
 }
@@ -42,6 +43,7 @@ var tradeValues = function(theUrl, name,curr,coin){
                 var b_ask;
                 try{
                     if(name=="coinsecure"){
+                        console.log(body.message.bid);
                         b_bid=parseFloat(body.message.bid/100)/rate;
                         b_ask=parseFloat(body.message.ask/100)/rate;
                     }
@@ -101,7 +103,8 @@ var tradeValues = function(theUrl, name,curr,coin){
 					resolve({bid:0000,ask:0000});
 				}
 				else{
-					console.log(name,"unavailable");
+                    console.log(name,"unavailable");
+                    console.log(response.statusCode);
 					// console.log(body);
 					resolve({bid:0000,ask:0000});
 					//reject("errorCode"+response.statusCode);
