@@ -71,6 +71,8 @@ strong{
     padding:0.5%;
     margin:0px;
     color: #fff;
+    background: #1e5157;
+    background: -webkit-linear-gradient(#6a8a82, #1e5157);    
     background: linear-gradient(#6a8a82, #1e5157);
     border: 3px solid #262728;
     border-radius:10%;
@@ -93,18 +95,24 @@ strong{
     width:5em;
     color: #333;
     border: 3px solid #fa2;
+    background: #ffab23;
+    background: -webkit-linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
     background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-    text-shadow: 0px 1px 0p #ffee66;
+    text-shadow: 0px 1px 0px #ffee66;
 }
 
 .button-holder .highlight:hover{
     border: 3px solid #fa2;
     cursor: default;
+    background: #ffab23;
+    background: -webkit-linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
     background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
 }
 
 .button-holder p:hover{
     border: 3px solid black;
+    background: #6a8a82;
+    background: -webkit-linear-gradient(#6a8a82,#5fa4aa);
     background: linear-gradient(#6a8a82,#5fa4aa);
     cursor: pointer;
 }
