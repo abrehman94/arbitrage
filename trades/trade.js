@@ -20,21 +20,21 @@ var rate=64.5;
 function updateRate(val){
     rate = val;
 }
-function getRate(){
-    request({url:"http://www.apilayer.net/api/live?access_key=5fbd254e69b14968334abe792c9b1501",json:true},(err,res,body)=>{
-        if(err){
-            console.log("error with rate");
-        }
-        updateRate(parseFloat(body.quotes.USDINR*10/10));
-    })
-}
-getRate();
-setInterval(getRate,3600000);
+// function getRate(){
+//     request({url:"http://www.apilayer.net/api/live?access_key=5fbd254e69b14968334abe792c9b1501",json:true},(err,res,body)=>{
+//         if(err){
+//             console.log("error with rate");
+//         }
+//         updateRate(parseFloat(body.quotes.USDINR*10/10));
+//     })
+// }
+// getRate();
+// setInterval(getRate,3600000);
 
 var tradeValues = function(theUrl, name,curr,coin){
     return new Promise((resolve,reject)=>{
         request({
-            url: theUrl,
+            url: "https://quiet-hamlet-43198.herokuapp.com/"+theUrl,
             json: true
         },(error,response,body)=>{
             try{
