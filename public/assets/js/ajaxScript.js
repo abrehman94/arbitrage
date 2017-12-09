@@ -211,7 +211,7 @@ $(document).ready(function(){
         var skipcs = skipkx = skipbb = skipbf = skipkr = skipcx = false;
         var coinsecureURL ="";
         if(coin=="btc"){
-            coinsecureURL = mycors+"https://api.coinsecure.in/v1/exchange/ticker"; //servername+"/getDataCoinsecure/btc"+"/"+curr; 
+            coinsecureURL = "https://api.coinsecure.in/v1/exchange/ticker"; //servername+"/getDataCoinsecure/btc"+"/"+curr; 
         }
         else{
             //coinsecureURL = servername+"/getDataCoinsecure/none";
