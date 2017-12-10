@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    //0var servername = "https://quiet-hamlet-43198.herokuapp.com";
-    var servername = "http://localhost:4000"
+    var servername = "https://quiet-hamlet-43198.herokuapp.com";
+    //var servername = "http://localhost:4000"
     var coin = "btc";
     var count = 0;
     var fname ="";
@@ -32,7 +32,7 @@ $(document).ready(function(){
     runAjax(coin);
     ajaxController(false);
     //addLoading();
-    setTimeout(removeLoading,5000);
+    setTimeout(removeLoading,10000);
 
     $("#ok").click(()=>{
 //        var allFees = $(".fees input");

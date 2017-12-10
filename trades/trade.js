@@ -33,8 +33,8 @@ function updateRate(val){
 
 var tradeValues = function(theUrl, name,curr,coin){
     return new Promise((resolve,reject)=>{
-        request({
-            url: "https://quiet-hamlet-43198.herokuapp.com/"+theUrl,
+        request.get({
+            url: theUrl,
             json: true
         },(error,response,body)=>{
             try{
